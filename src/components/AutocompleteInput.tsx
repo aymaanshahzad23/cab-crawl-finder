@@ -52,7 +52,7 @@ const AutocompleteInput = ({
   }, []);
 
   const handleSuggestionClick = (suggestion: any) => {
-    onChange(suggestion.display_name || suggestion.description);
+    onChange(suggestion.display_name);
     setShowSuggestions(false);
     clearSuggestions();
   };
@@ -94,7 +94,7 @@ const AutocompleteInput = ({
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <span className="text-sm text-gray-800 truncate">
-                  {suggestion.display_name || suggestion.description}
+                  {suggestion.display_name}
                 </span>
               </div>
             </div>
