@@ -70,7 +70,7 @@ const AutocompleteInput = ({
           placeholder={placeholder}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="pl-12 py-3 text-lg border-2 border-gray-200 focus:border-orange-500 rounded-xl"
+          className="pl-12 py-3 text-lg border-2 border-voom-yellow focus:border-voom-black focus:ring-voom-black rounded-xl font-poppins placeholder:text-gray-500"
           onFocus={() => value.length > 2 && suggestions.length > 0 && setShowSuggestions(true)}
         />
         {rightButton && (
@@ -80,22 +80,22 @@ const AutocompleteInput = ({
         )}
         {isLoading && (
           <div className="absolute right-12 top-1/2 transform -translate-y-1/2">
-            <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
+            <Loader2 className="w-4 h-4 animate-spin text-voom-yellow" />
           </div>
         )}
       </div>
       
       {showSuggestions && suggestions.length > 0 && (
-        <div className="absolute z-50 w-full mt-1 bg-white border-2 border-gray-200 rounded-xl shadow-lg max-h-60 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-1 bg-white border-2 border-voom-yellow rounded-xl shadow-lg max-h-60 overflow-y-auto">
           {suggestions.map((suggestion, index) => (
             <div
               key={suggestion.place_id || index}
-              className="px-4 py-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0"
+              className="px-4 py-3 hover:bg-voom-yellow hover:bg-opacity-20 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors"
               onClick={() => handleSuggestionClick(suggestion)}
             >
               <div className="flex items-center space-x-3">
-                <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <span className="text-sm text-gray-800 truncate">
+                <MapPin className="w-4 h-4 text-voom-yellow flex-shrink-0" />
+                <span className="text-sm text-voom-black truncate font-poppins">
                   {suggestion.description}
                 </span>
               </div>

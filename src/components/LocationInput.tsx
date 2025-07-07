@@ -32,7 +32,7 @@ const LocationInput = ({ onLocationChange }: LocationInputProps) => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto space-y-4 p-6 bg-white rounded-2xl shadow-lg">
+    <div className="w-full max-w-md mx-auto space-y-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-voom-yellow">
       <div className="space-y-4">
         <AutocompleteInput
           placeholder="Pickup location"
@@ -40,13 +40,13 @@ const LocationInput = ({ onLocationChange }: LocationInputProps) => {
           onChange={setPickup}
           clientId={clientId}
           clientSecret={clientSecret}
-          icon={<MapPin className="text-orange-500 w-5 h-5" />}
+          icon={<MapPin className="text-voom-yellow w-5 h-5" />}
           rightButton={
             <Button
               onClick={handleCurrentLocation}
               variant="ghost"
               size="sm"
-              className="text-orange-500 hover:text-orange-600"
+              className="text-voom-yellow hover:text-voom-black hover:bg-voom-yellow transition-colors"
             >
               <Navigation className="w-4 h-4" />
             </Button>
@@ -59,13 +59,13 @@ const LocationInput = ({ onLocationChange }: LocationInputProps) => {
           onChange={setDrop}
           clientId={clientId}
           clientSecret={clientSecret}
-          icon={<MapPin className="text-blue-600 w-5 h-5" />}
+          icon={<MapPin className="text-voom-black w-5 h-5" />}
         />
       </div>
       
       <Button
         onClick={handleSearch}
-        className="w-full py-3 text-lg font-semibold bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+        className="w-full py-3 text-lg font-semibold bg-voom-yellow text-voom-black hover:bg-voom-black hover:text-voom-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 font-poppins"
         disabled={!pickup || !drop}
       >
         <Search className="w-5 h-5 mr-2" />

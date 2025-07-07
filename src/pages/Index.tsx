@@ -145,16 +145,16 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-voom-light-bg">
       <Header />
       
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl font-bold text-voom-black mb-4 font-poppins">
               Compare rides across all platforms
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto font-poppins">
               Get the best deals on Uber, Ola, Rapido, BluSmart, and InDrive all in one place. 
               Save time and money with instant comparisons.
             </p>
@@ -172,13 +172,20 @@ const Index = () => {
         </div>
       </main>
       
-      <footer className="bg-gray-800 text-white py-8 mt-16">
+      <footer className="bg-voom-black text-voom-white py-8 mt-16">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-2">VOOM</h3>
-          <p className="text-gray-300">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <img 
+              src="/assets/logo-icon.png" 
+              alt="Voom Logo" 
+              className="w-8 h-8 filter brightness-0 invert"
+            />
+            <h3 className="text-2xl font-bold font-poppins">VOOM</h3>
+          </div>
+          <p className="text-gray-300 font-poppins">
             Your one-stop solution for comparing cab rides across platforms
           </p>
-          <p className="text-sm text-gray-400 mt-4">
+          <p className="text-sm text-gray-400 mt-4 font-poppins">
             * Prices and availability are fetched in real-time from respective platforms
           </p>
         </div>
