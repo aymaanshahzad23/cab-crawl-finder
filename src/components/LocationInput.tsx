@@ -1,8 +1,7 @@
 
 import React, { useState } from 'react';
-import { MapPin, Navigation, Search, Key } from 'lucide-react';
+import { MapPin, Navigation, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import AutocompleteInput from './AutocompleteInput';
 
 interface LocationInputProps {
@@ -12,9 +11,10 @@ interface LocationInputProps {
 const LocationInput = ({ onLocationChange }: LocationInputProps) => {
   const [pickup, setPickup] = useState('');
   const [drop, setDrop] = useState('');
-  const [clientId, setClientId] = useState('');
-  const [clientSecret, setClientSecret] = useState('');
-  const [showCredentialsInput, setShowCredentialsInput] = useState(true);
+
+  // Embedded Ola Maps credentials
+  const clientId = "5c1d324b-7043-4816-8c20-a269f263561c";
+  const clientSecret = "5c6a738b232e4f0681884555df862f3a";
 
   const handleCurrentLocation = () => {
     if (navigator.geolocation) {
@@ -33,40 +33,6 @@ const LocationInput = ({ onLocationChange }: LocationInputProps) => {
 
   return (
     <div className="w-full max-w-md mx-auto space-y-4 p-6 bg-white rounded-2xl shadow-lg">
-      {showCredentialsInput && (
-        <div className="space-y-3 p-4 bg-orange-50 rounded-xl border-2 border-orange-200">
-          <div className="flex items-center space-x-2">
-            <Key className="w-4 h-4 text-orange-600" />
-            <span className="text-sm font-medium text-orange-800">Enter Ola Maps OAuth Credentials</span>
-          </div>
-          <Input
-            placeholder="Client ID"
-            value={clientId}
-            onChange={(e) => setClientId(e.target.value)}
-            className="text-sm"
-          />
-          <Input
-            placeholder="Client Secret"
-            value={clientSecret}
-            onChange={(e) => setClientSecret(e.target.value)}
-            className="text-sm"
-            type="password"
-          />
-          <p className="text-xs text-orange-700">
-            Get your OAuth credentials from Ola Maps Developer Console. This enables address autocomplete with OAuth authentication.
-          </p>
-          {clientId && clientSecret && (
-            <Button
-              onClick={() => setShowCredentialsInput(false)}
-              size="sm"
-              className="bg-orange-500 hover:bg-orange-600"
-            >
-              Enable OAuth Autocomplete
-            </Button>
-          )}
-        </div>
-      )}
-
       <div className="space-y-4">
         <AutocompleteInput
           placeholder="Pickup location"
