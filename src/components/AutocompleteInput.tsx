@@ -8,7 +8,8 @@ interface AutocompleteInputProps {
   placeholder: string;
   value: string;
   onChange: (value: string) => void;
-  apiKey: string;
+  clientId: string;
+  clientSecret: string;
   icon: React.ReactNode;
   rightButton?: React.ReactNode;
 }
@@ -17,12 +18,13 @@ const AutocompleteInput = ({
   placeholder, 
   value, 
   onChange, 
-  apiKey, 
+  clientId, 
+  clientSecret,
   icon,
   rightButton 
 }: AutocompleteInputProps) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const { suggestions, isLoading, searchPlaces, clearSuggestions } = useOlaAutocomplete(apiKey);
+  const { suggestions, isLoading, searchPlaces, clearSuggestions } = useOlaAutocomplete(clientId, clientSecret);
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +54,7 @@ const AutocompleteInput = ({
   }, []);
 
   const handleSuggestionClick = (suggestion: any) => {
-    onChange(suggestion.display_name);
+    onChange(suggestion.description);
     setShowSuggestions(false);
     clearSuggestions();
   };
@@ -94,7 +96,7 @@ const AutocompleteInput = ({
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <span className="text-sm text-gray-800 truncate">
-                  {suggestion.display_name}
+                  {suggestion.description}
                 </span>
               </div>
             </div>
